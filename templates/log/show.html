@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% set customer_id = log.doc['customer_id'] %}
+
+<h3>Show Details for Log "{{log.name}}"</h3>
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td><strong>Customer</strong></td>
+            <td><a href="/customers/show/{{customer_id}}">{{customer_id}}</a></td>
+        </tr>
+        {% for k, v in log.doc.items() if k != "customer_id" %}
+        <tr>
+            <td><strong>{{k}}</strong></td>
+            <td>{{v}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

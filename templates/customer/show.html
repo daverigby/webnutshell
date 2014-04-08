@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h3>Show Details for "{{customer.name}}"</h3>
+<table class="table table-striped">
+    <tbody>
+        {% for k, v in customer.doc.items() %}
+        <tr>
+            <td><strong>{{k}}</strong></td>
+            <td>{{v}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Clusters</h3>
+<table class="table table-striped">
+    <tbody>
+        {% for cluster in clusters %}
+        <tr>
+            <td><a
+                    href="/clusters/show/{{cluster.id}}">{{cluster.id}}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Logs</h3>
+<table class="table table-striped">
+    <tbody>
+        {% for log in logs %}
+        <tr>
+            <td><a
+                    href="/logs/show/{{log.id}}">{{log.id}}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
